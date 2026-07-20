@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  /* Fokus keyboard yang jelas dan konsisten di semua elemen interaktif */
+  :focus-visible {
+    outline: 2px solid theme('colors.signal');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-wide;
+  }
+  .badge-pengajuan { @apply bg-clay/10 text-clay; }
+  .badge-aktif { @apply bg-signal/10 text-signal; }
+  .badge-alumni { @apply bg-moss/10 text-moss; }
+  .badge-draft { @apply bg-line text-ink/60; }
+  .badge-submitted { @apply bg-signal/10 text-signal; }
+  .badge-approved { @apply bg-moss/10 text-moss; }
+  .badge-rejected { @apply bg-clay/10 text-clay; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold
+    transition-all duration-150 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary { @apply bg-ink text-paper hover:bg-ink/90; }
+  .btn-signal { @apply bg-signal text-white hover:bg-signal/90; }
+  .btn-ghost { @apply bg-transparent text-ink hover:bg-ink/5 border border-line; }
+  .btn-danger { @apply bg-clay text-white hover:bg-clay/90; }
+
+  .field-label { @apply block text-sm font-medium text-ink/70 mb-1.5; }
+  .field-input {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-sm text-ink
+    placeholder:text-ink/30 focus:outline-none focus:ring-2 focus:ring-ink/20 focus:border-ink/40 transition-shadow;
+  }
+  .card { @apply rounded-2xl border border-line bg-white shadow-sm; }
+
+  /* Bungkus <table> dengan ini supaya bisa discroll horizontal di layar sempit
+     tanpa merusak layout, alih-alih memampatkan kolom. */
+  .table-scroll { @apply overflow-x-auto -mx-px; -webkit-overflow-scrolling: touch; }
+}
