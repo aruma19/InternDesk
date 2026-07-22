@@ -10,8 +10,8 @@ async function dashboard(req, res) {
     const counts = { pengajuan: 0, aktif: 0, alumni: 0 };
     statusRows.forEach((r) => (counts[r.status_magang] = r.total));
 
-    const [[{ totalUsers }]] = await pool.query(
-      'SELECT COUNT(*) as totalUsers FROM users WHERE is_admin = 0'
+    const [[{ totalParticipants }]] = await pool.query(
+      'SELECT COUNT(*) as totalParticipants FROM intern_forms'
     );
     const [[{ totalReports }]] = await pool.query(
       'SELECT COUNT(*) as totalReports FROM internship_reports'
@@ -24,7 +24,7 @@ async function dashboard(req, res) {
       pengajuanCount: counts.pengajuan,
       aktifCount: counts.aktif,
       alumniCount: counts.alumni,
-      totalUsers,
+      totalParticipants,
       totalReports,
       pendingReports,
     });

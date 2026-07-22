@@ -19,7 +19,7 @@ export default function AdminDashboard() {
         { label: 'Pengajuan', value: stats.pengajuanCount, to: '/admin/intern-forms?status=pengajuan', color: 'text-clay' },
         { label: 'Aktif', value: stats.aktifCount, to: '/admin/intern-forms?status=aktif', color: 'text-signal' },
         { label: 'Alumni', value: stats.alumniCount, to: '/admin/intern-forms?status=alumni', color: 'text-moss' },
-        { label: 'Total Mahasiswa', value: stats.totalUsers, to: '/admin/intern-forms', color: 'text-ink' },
+        { label: 'Total Mahasiswa', value: stats.totalParticipants, to: '/admin/intern-forms', color: 'text-ink' },
         { label: 'Total Laporan', value: stats.totalReports, to: '/admin/reports', color: 'text-ink' },
         { label: 'Laporan Menunggu', value: stats.pendingReports, to: '/admin/reports?status=submitted', color: 'text-signal' },
       ]

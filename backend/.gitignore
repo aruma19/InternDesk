@@ -6,4 +6,3 @@ uploads/internship_reports/*
 !uploads/permohonan/.gitkeep
 !uploads/internship_reports/.gitkeep
 npm-debug.log*
-uploads/
